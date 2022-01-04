@@ -1,2 +1,15 @@
 ---
-# tasks file for .
+- name: Update server
+  apt:
+    upgrade: yes
+    update_cache: yes
+
+- name: Install required packages
+  apt:
+    pkg:
+      - git
+      - curl
+      - vim
+      - python3
+      - python3-pip
+  notify: reboot
